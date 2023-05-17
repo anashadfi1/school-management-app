@@ -1,0 +1,3 @@
+20230514	23:20:05	9d025cc2-05ec-429f-88c7-6a6e88b17697	ValidationError: User validation failed: password: Cast to Boolean failed for value "$2b$10$mybhOlqzShEBvk1edoFoHuUUz7xfJ8RcmMLgyxCZqTl6uhhhsx0Tq" (type string) at path "password" because of "CastError"	POST	/users	undefined
+20230514	23:20:39	f9290657-be04-4b58-96d9-409f52d0a7c0	ValidationError: User validation failed: password: Cast to Boolean failed for value "$2b$10$NJFW/IKeCNUNt7FbKN7q5eEJ.MrHKaCKrahn02qs0cxfH7.U2gB4e" (type string) at path "password" because of "CastError"	POST	/users	undefined
+20230516	17:41:58	b08b7bf4-5419-463e-a85c-d03bf63912ba	MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pgtmuyn-shard-00-01.amiohly.mongodb.net	GET	/users	undefined
