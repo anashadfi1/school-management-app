@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const User = require('./User')
+const User = require('./userModel')
 const AuthoIncrement = require('mongoose-sequence')(mongoose)
 const noteSchema = new mongoose.Schema({
     username:{

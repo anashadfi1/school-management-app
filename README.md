@@ -1,2 +1,1 @@
-"# schoolapp-django-react" 
-"# schoolapp-express-react" 
+"# schoolapp-MEARN-stack" 
