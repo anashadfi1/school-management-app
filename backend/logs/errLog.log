@@ -29,3 +29,14 @@
 20230521	01:38:56	46965cff-527e-4f73-b351-c8c36a9b6703	MongoServerError: $all needs an array	GET	/students	undefined
 20230521	01:38:58	6d9a80f1-eda4-4042-8e13-8bd396ae208a	MongoServerError: $all needs an array	GET	/students	undefined
 20230521	02:09:07	cd27e183-e856-4125-a659-bbaac246dd42	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	03:56:52	12d35824-4e28-4c45-a219-235ea7f920e9	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	03:56:56	1ca3030d-a3b4-4304-9188-da5fa36d8e8e	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	04:01:15	6cd229ee-eb54-4e04-9d8d-91c71e986430	ReferenceError: Cannot access 'Student' before initialization	POST	/students	undefined
+20230521	04:01:56	d9f103d8-aca1-430f-a15b-51927ea40c18	ReferenceError: Cannot access 'Student' before initialization	POST	/students	undefined
+20230521	04:07:09	10bd90a1-cf5c-4d8e-8b60-3285f499ab8f	ReferenceError: Cannot access 'Student' before initialization	POST	/students/	undefined
+20230521	04:09:05	c3201d0b-09dc-48bb-836b-da4e3e326fba	ReferenceError: Cannot access 'Student' before initialization	POST	/students/	undefined
+20230521	04:14:53	4f783b33-4dc1-4d2f-867a-ce6de9075c8d	ReferenceError: Cannot access 'Student' before initialization	POST	/students/	undefined
+20230521	04:25:53	6cf5f12e-cbea-4c97-b15c-4b989e6698d7	ReferenceError: Cannot access 'Student' before initialization	POST	/students/	undefined
+20230521	04:29:29	d7f884c8-1a8b-415a-8e08-ee1952a1985b	ReferenceError: Cannot access 'Student' before initialization	POST	/students/	undefined
+20230521	04:50:50	d22812b2-ec11-4554-b64b-2a0f85bc70aa	ReferenceError: Cannot access 'Student' before initialization	DELETE	/students	undefined
+20230521	05:45:42	9c8f4bb4-9340-4fbb-a499-858803b7aa6e	SyntaxError: Expected ',' or '}' after property value in JSON at position 31	POST	//users	undefined

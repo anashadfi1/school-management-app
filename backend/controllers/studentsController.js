@@ -4,13 +4,14 @@ const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
 const Student = require('../models/Student')
 const { id } = require('date-fns/locale')
+const { response } = require('express')
 
 // @desc Get all students
 // @route GET /users
 // @access Private
 const getAllStudents = asyncHandler(async (req, res) => {
     // Get all users from MongoDB
-    const students = await Student.find().all();
+    const students = await Student.find();
 
     // If no students 
     if (!students?.length) {
@@ -24,104 +25,37 @@ const getAllStudents = asyncHandler(async (req, res) => {
 // @route POST /students
 // @access Private
 const createNewStudent = asyncHandler(async (req, res) => {
-    const { Filliere, _id, N_Appo, CNE, Nom, Prenom, Semestre, Ex_M1, Ex_M2,Ex_M3, Ex_M4, Ex_M5, M6, Ex_M6, NTab_M6, Loc_M6, Date_M6} = req.body
+    const {  _id, N_Appo, CNE, Nom, Prenom, Filiere, Semestre, Ex_M1, Ex_M2,Ex_M3, Ex_M4, Ex_M5, M6, Ex_M6, NTab_M6, Loc_M6, Date_M6} = req.body
 
-    // Confirm data
-    if (Filliere || _id || N_Appo || CNE || Nom || Prenom || Semestre || Ex_M1 || Ex_M2 || Ex_M3 || Ex_M4 || Ex_M5 || M6 || Ex_M6 || NTab_M6 || Loc_M6 || Date_M6) {
-        return res.status(400).json({ message: 'All fields are required' })
-    }
-
-    // Check for duplicate Nom
-    const duplicate = await Student.findOne({ Nom }).lean().exec()
-
-    if (duplicate) {
-        return res.status(409).json({ message: 'Duplicate Nom' })
-    }
-
-    // Hash Filliere 
-    const hashedPwd = await bcrypt.hash(Filliere, 10) // salt rounds
-
-    const StudentObject = { Filliere, _id, N_Appo, CNE, Nom, Prenom, Semestre, Ex_M1, Ex_M2,Ex_M3, Ex_M4, Ex_M5, M6, Ex_M6, NTab_M6, Loc_M6, Date_M6}
-
-    // Create and store new Student 
-    const Student = await Student.create(StudentObject)
-
-    if (Student) { //created 
-        res.status(201).json({ message: `New Student ${Nom} created` })
-    } else {
-        res.status(400).json({ message: 'Invalid Student data received' })
-    }
+    // }
+    const obj = new Student(req.body)
+    obj.save().then(resp=>{
+        return res.json("object saved")
+    })
 })
 
 // @desc Update a Student
 // @route PATCH /students
 // @access Private
 const updateStudent = asyncHandler(async (req, res) => {
-    const { Filliere, _id, N_Appo, CNE, Nom, Prenom, Semestre, Ex_M1, Ex_M2,Ex_M3, Ex_M4, Ex_M5, M6, Ex_M6, NTab_M6, Loc_M6, Date_M6} = req.body
-
-    // Confirm data 
-    if (!_id || !CNE || !N_Appo || !Prenom || !Semestre) {
-        return res.status(400).json({ message: 'All fields except Filliere are required' })
-    }
-
-    // Does the Student exist to update?
-    const Student = await Student.findById(id).exec()
-
-    if (!Student) {
-        return res.status(400).json({ message: 'Student not found' })
-    }
-
-    // Check for duplicate 
-    const duplicate = await Student.findOne({ Nom }).lean().exec()
-
-    // Allow updates to the original Student 
-    if (duplicate && duplicate?._id.toString() !== id) {
-        return res.status(409).json({ message: 'Duplicate Nom' })
-    }
-
-    Student.Nom = Nom
-    Student.roles = roles
-    Student.active = active
-
-    if (Filliere) {
-        // Hash Filliere 
-        Student.Filliere = await bcrypt.hash(Filliere, 10) // salt rounds 
-    }
-
-    const updatedStudent = await Student.save()
-
-    res.json({ message: `${updatedStudent.Nom} updated` })
+    console.log(req.body.id)
+    console.log(req.body)
+    Student.findByIdAndUpdate({_id: req.body.id},req.body,{new:true}).then(updatedObject=>{
+        return res.json({message: "successfully updated "})
+    })
 })
 
 // @desc Delete a Student
 // @route DELETE /students
 // @access Private
 const deleteStudent = asyncHandler(async (req, res) => {
-    const { id } = req.body
+    
 
-    // Confirm data
-    if (!id) {
-        return res.status(400).json({ message: 'Student ID Required' })
-    }
-
-    // Does the Student still have assigned notes?
-    const student = await Student.findOne({ Student: id }).lean().exec()
-    if (note) {
-        return res.status(400).json({ message: 'Student has assigned notes' })
-    }
-
-    // Does the Student exist to delete?
-    const Student = await Student.findById(id).exec()
-
-    if (!Student) {
-        return res.status(400).json({ message: 'Student not found' })
-    }
-
-    const result = await Student.deleteOne()
-
-    const reply = `Nom ${result.Nom} with ID ${result._id} deleted`
-
-    res.json(reply)
+    Student.findByIdAndDelete(req.body.id).then((item)=>{
+        return res.json({
+            message: "successfully deleted!!!!!"
+        })
+    })
 })
 
 module.exports = {

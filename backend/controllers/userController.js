@@ -5,6 +5,15 @@ const createToken = (_id) => {
   return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d' })
 }
 
+const createNewUser = asyncHandler(async (req, res) => {
+  const {  username, password, active} = req.body
+
+  // }
+  const obj = new User(req.body)
+  obj.save().then(resp=>{
+      return res.json("object saved")
+  })
+})
 // login a user
 const loginUser = async (req, res) => {
   const {email, password} = req.body
@@ -36,11 +45,11 @@ const signupUser = async (req, res) => {
     res.status(400).json({error: error.message})
   }
 }
-const currentUser = asyncHandler(async (req, res) => {
+// const currentUser = asyncHandler(async (req, res) => {
      
-  res.json(req.user);
-});
+//   res.json(req.user);
+// });
 
 
 
-module.exports = { currentUser, signupUser, loginUser };
+module.exports = { createNewUser,signupUser, loginUser };

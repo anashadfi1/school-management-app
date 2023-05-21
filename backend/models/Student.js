@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const EtudiantSchema = new mongoose.Schema({
+const StudentSchema = new mongoose.Schema({
   _id: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
   },
   N_Apo: {
@@ -71,7 +71,7 @@ const EtudiantSchema = new mongoose.Schema({
   },
 });
 
-const Etudiant = mongoose.model('Etudiant', EtudiantSchema);
+const Student = mongoose.model('Student', StudentSchema);
 
-module.exports = Etudiant;
+module.exports = Student;
 //Filliere, _id, N_Appo, CNE, Nom, Prenom, Semestre, Ex_M1, Ex_M2,Ex_M3, Ex_M4, Ex_M5, M6, Ex_M6, NTab_M6, Loc_M6, Date_M6
