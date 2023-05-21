@@ -1,4 +1,4 @@
-const Student = require('../models/User')
+const User = require('../models/User')
 const Note = require('../models/Note')
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
@@ -10,24 +10,24 @@ const { id } = require('date-fns/locale')
 // @access Private
 const getAllStudents = asyncHandler(async (req, res) => {
     // Get all users from MongoDB
-    const students = await Student.find().select(id).lean()
+    const students = await Student.find().all();
 
     // If no students 
     if (!students?.length) {
         return res.status(400).json({ message: 'No students found' })
     }
 
-    res.json(students)
+   return res.json(students)
 })
 
 // @desc Create new Student
 // @route POST /students
 // @access Private
 const createNewStudent = asyncHandler(async (req, res) => {
-    const {CNE, Nom,Prenom, Filliere } = req.body
+    const { Filliere, _id, N_Appo, CNE, Nom, Prenom, Semestre, Ex_M1, Ex_M2,Ex_M3, Ex_M4, Ex_M5, M6, Ex_M6, NTab_M6, Loc_M6, Date_M6} = req.body
 
     // Confirm data
-    if (!CNE || !Nom || !Filliere || !Prenom) {
+    if (Filliere || _id || N_Appo || CNE || Nom || Prenom || Semestre || Ex_M1 || Ex_M2 || Ex_M3 || Ex_M4 || Ex_M5 || M6 || Ex_M6 || NTab_M6 || Loc_M6 || Date_M6) {
         return res.status(400).json({ message: 'All fields are required' })
     }
 
@@ -41,7 +41,7 @@ const createNewStudent = asyncHandler(async (req, res) => {
     // Hash Filliere 
     const hashedPwd = await bcrypt.hash(Filliere, 10) // salt rounds
 
-    const StudentObject = { CNE, Nom, Prenom , Filliere }
+    const StudentObject = { Filliere, _id, N_Appo, CNE, Nom, Prenom, Semestre, Ex_M1, Ex_M2,Ex_M3, Ex_M4, Ex_M5, M6, Ex_M6, NTab_M6, Loc_M6, Date_M6}
 
     // Create and store new Student 
     const Student = await Student.create(StudentObject)
@@ -57,10 +57,10 @@ const createNewStudent = asyncHandler(async (req, res) => {
 // @route PATCH /students
 // @access Private
 const updateStudent = asyncHandler(async (req, res) => {
-    const { id, Nom, roles, active, Filliere } = req.body
+    const { Filliere, _id, N_Appo, CNE, Nom, Prenom, Semestre, Ex_M1, Ex_M2,Ex_M3, Ex_M4, Ex_M5, M6, Ex_M6, NTab_M6, Loc_M6, Date_M6} = req.body
 
     // Confirm data 
-    if (!id || !Nom || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean') {
+    if (!_id || !CNE || !N_Appo || !Prenom || !Semestre) {
         return res.status(400).json({ message: 'All fields except Filliere are required' })
     }
 

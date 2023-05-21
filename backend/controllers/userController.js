@@ -36,5 +36,11 @@ const signupUser = async (req, res) => {
     res.status(400).json({error: error.message})
   }
 }
+const currentUser = asyncHandler(async (req, res) => {
+     
+  res.json(req.user);
+});
 
-module.exports = { signupUser, loginUser }
+
+
+module.exports = { currentUser, signupUser, loginUser };

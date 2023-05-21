@@ -1,3 +1,31 @@
 20230514	23:20:05	9d025cc2-05ec-429f-88c7-6a6e88b17697	ValidationError: User validation failed: password: Cast to Boolean failed for value "$2b$10$mybhOlqzShEBvk1edoFoHuUUz7xfJ8RcmMLgyxCZqTl6uhhhsx0Tq" (type string) at path "password" because of "CastError"	POST	/users	undefined
 20230514	23:20:39	f9290657-be04-4b58-96d9-409f52d0a7c0	ValidationError: User validation failed: password: Cast to Boolean failed for value "$2b$10$NJFW/IKeCNUNt7FbKN7q5eEJ.MrHKaCKrahn02qs0cxfH7.U2gB4e" (type string) at path "password" because of "CastError"	POST	/users	undefined
 20230516	17:41:58	b08b7bf4-5419-463e-a85c-d03bf63912ba	MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pgtmuyn-shard-00-01.amiohly.mongodb.net	GET	/users	undefined
+20230520	20:28:00	a4dfdf6d-2563-48be-b5ff-655d6e6a577d	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:32:03	69905adb-4461-4b4c-8a5b-6dc2837998f4	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:36:05	9b9f20c3-5b93-456c-af22-2d92b100f889	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:36:07	2ea021b6-2fa1-432b-8689-a785b6ddf2b6	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:36:47	a700fe0e-bb4b-4fea-9909-d7b555bb06a8	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:36:49	3c3c425e-e07d-46d8-af7e-8c8882485169	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:36:50	c842bc64-8073-4d04-870a-2ced7ac3cb0a	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:38:38	0f1a8190-20c0-42a2-8d43-96582071458f	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:39:53	f3bf2306-09f6-4d06-9421-e08006ea5459	MongoServerError: An empty sub-projection is not a valid value. Found empty object at path	GET	/students	undefined
+20230520	20:43:07	698bebec-a3d1-4470-bd06-06336ce6c32d	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	00:35:41	d56cc8fd-05bc-4732-bf71-bba6547d38d5	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	00:36:29	de8a91ff-bbd4-400d-adc4-63f57791932e	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	00:39:29	1edb88d5-e3e0-4f14-87c0-6e464e253bb8	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	00:39:31	afc75b97-5e8e-4aaa-8d9f-fbd2067e2fa7	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	00:41:13	031f543e-568a-41a5-8ae0-f03a74560a0c	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	00:41:15	40692701-3f8b-4283-ab48-98f95c7cddfb	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	00:41:56	440bce1a-812b-4323-a965-93caa59e13da	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	00:47:23	c82cdb92-bd2f-4734-9f5b-ba156ecb0f1d	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:34:57	2bbf6a39-829a-4b9c-99cd-73dc90dde10e	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:34:58	079492f1-8599-4351-9a1a-9e6e5c67370a	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:35:00	8a263fcc-5a93-425a-85a4-ca08302be8ea	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:35:01	e7546074-e83f-47b4-9526-a7ad402beec1	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:35:01	bcf547aa-8603-4b6f-8b33-9897e921a894	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:35:02	7405f066-c2a1-4c4d-aee6-cf50941dcc35	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:36:59	a75ead2b-a15d-4dba-a527-036fe65afb0a	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:38:56	46965cff-527e-4f73-b351-c8c36a9b6703	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	01:38:58	6d9a80f1-eda4-4042-8e13-8bd396ae208a	MongoServerError: $all needs an array	GET	/students	undefined
+20230521	02:09:07	cd27e183-e856-4125-a659-bbaac246dd42	MongoServerError: $all needs an array	GET	/students	undefined
