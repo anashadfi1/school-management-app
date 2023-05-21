@@ -5,15 +5,7 @@ const createToken = (_id) => {
   return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d' })
 }
 
-const createNewUser = asyncHandler(async (req, res) => {
-  const {  username, password, active} = req.body
 
-  // }
-  const obj = new User(req.body)
-  obj.save().then(resp=>{
-      return res.json("object saved")
-  })
-})
 // login a user
 const loginUser = async (req, res) => {
   const {email, password} = req.body
@@ -52,4 +44,4 @@ const signupUser = async (req, res) => {
 
 
 
-module.exports = { createNewUser,signupUser, loginUser };
+module.exports = { signupUser, loginUser };
